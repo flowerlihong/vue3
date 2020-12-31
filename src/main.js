@@ -1,4 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-createApp(App).mount('#app')
+import router from './router';
+import './style/global.css';
+const app=createApp(App)
+app.use(router)
+app.mount('#app')
+app.config.globalProperties.$filters = {
+    currencyUSD(value) {
+      return '$' + value
+    }
+  }
